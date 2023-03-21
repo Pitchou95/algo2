@@ -2,21 +2,13 @@ ALGORITHM count_senstence
 VAR
     sentence : STRING:="good bye.";
     words:STRING:=0;
-    vowels:STRING := "a","e","i","o","u";
+    vowels:INTEGER;
     chars : CHAR;
     i : INTEGER :=0;
 BEGIN
-    WHILE (chars == "." || chars == " ") DO
-        chars =chars+1;
-        i:=i+1
-    IF (words = 0) THEN
-        words :=1;
-    ELSE_IF (words > 0) THEN
-        words := words +1;
-    ELSE
-        i :=i+1
-    END_IF
-    END_WHILE
+FOR chars IN sentence
+IF (chars NOT Equals " " AND chars NOT Equals"." ) 
+    i=i+1
     SWITCH (chars) DO
     case "a", "A": vowels := vowels + 1;
     case "a", "A": vowels := vowels + 1;
@@ -27,6 +19,12 @@ BEGIN
     case "u", "U": vowels := vowels + 1;
     case "o", "O": vowels := vowels + 1;
     default : 
-END_SWITCH
-write (i)
+    ELSE_IF( chars Equals " " )
+    words=words+1
+END_IF
+END_FOR
+write(" le nombre de characteres: " +i)
+write(" le nombre de vowels: " +vowels )
+write(" le nombre de words: "  +words )
+
 END
